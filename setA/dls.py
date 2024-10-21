@@ -31,18 +31,18 @@ class Graph:
         path.pop()
         return False
         
-# def main():
-#     graph = Graph()
-#     # v = int(input("enter number of vertex: "))
-#     e = int(input("enter number of edges: "))
-#     for _ in range(e):
-#         u, v = input("enter the connected vertexes: ").split(" ")
-#         graph.add_edge(u, v)
-#     start_vertex = input("enter the starting vertex: ")
-#     graph.dls(start_vertex)
+def main():
+    graph = Graph()
+    # v = int(input("enter number of vertex: "))
+    e = int(input("enter number of edges: "))
+    for _ in range(e):
+        u, v = input("enter the connected vertexes: ").split(" ")
+        graph.add_edge(u, v)
+    start_vertex = input("enter the starting vertex: ")
+    graph.dls(start_vertex)
     
-# if __name__ == "__main__":
-#     main()  
+if __name__ == "__main__":
+    main()  
         
 
 def main():

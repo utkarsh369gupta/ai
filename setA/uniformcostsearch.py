@@ -6,7 +6,7 @@ class Graph:
         self.graph = defaultdict(list)
 
     def add_edge(self, u, v, cost):
-        self.graph[u].append((v, cost))  
+        self.graph[u].append((v, cost))
 
     def ucs(self, start, goal):
         priority_queue = [(0, start)]
@@ -31,22 +31,21 @@ class Graph:
                     parent[neighbor] = current_node
                     heapq.heappush(priority_queue, (new_cost, neighbor))
 
-        return None, float('inf')  # Return None if no path is found
+        return None, float('inf')
 
-graph = Graph()
 
-# Add edges (node1, node2, cost)
-graph.add_edge(1, 2, 1)
-graph.add_edge(1, 3, 4)
-graph.add_edge(2, 3, 2)
-graph.add_edge(2, 4, 6)
-graph.add_edge(3, 4, 3)
+if __name__ == "__main__":
+    graph = Graph()
+    n = int(input("Enter the number of edges: "))
+    for i in range(n):
+        u, v, cost = map(int, input(f"Enter edge {i + 1} (u, v, cost): ").split())
+        graph.add_edge(u, v, cost)
 
-start_node = 1
-goal_node = 4
+    start_node = int(input("Enter the starting node: "))
+    goal_node = int(input("Enter the goal node: "))
 
-path, total_cost = graph.ucs(start_node, goal_node)
-if path:
-    print(f"Path from {start_node} to {goal_node}: {path} with total cost: {total_cost}")
-else:
-    print(f"No path found from {start_node} to {goal_node}")
+    path, total_cost = graph.ucs(start_node, goal_node)
+    if path:
+        print(f"Path from {start_node} to {goal_node}: {path} with total cost: {total_cost}")
+    else:
+        print(f"No path found from {start_node} to {goal_node}")

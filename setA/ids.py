@@ -31,26 +31,38 @@ class Graph:
         
         path.pop()
         return False
+    
+def main():
+    graph = Graph()
+    e = int(input("enter number of edges: "))
+    for _ in range(e):
+        u, v = input("enter the connected vertexes: ").split(" ")
+        graph.add_edge(u, v)
+    start_vertex = input("enter the starting vertex: ")
+    graph.ids(start_vertex)
+    
+if __name__ == "__main__":
+    main()  
 
 # Example usage
-graph = Graph()
+# graph = Graph()
 
-# Adding edges to the graph
-graph.add_edge(0, 1)
-graph.add_edge(0, 2)
-graph.add_edge(1, 3)
-graph.add_edge(1, 4)
-graph.add_edge(2, 5)
-graph.add_edge(2, 6)
+# # Adding edges to the graph
+# graph.add_edge(0, 1)
+# graph.add_edge(0, 2)
+# graph.add_edge(1, 3)
+# graph.add_edge(1, 4)
+# graph.add_edge(2, 5)
+# graph.add_edge(2, 6)
 
-start_node = 0
-goal_node = 5
-max_depth = 3
+# start_node = 0
+# goal_node = 5
+# max_depth = 3
 
-# Perform Iterative Deepening Search
-path = graph.ids(start_node, goal_node, max_depth)
+# # Perform Iterative Deepening Search
+# path = graph.ids(start_node, goal_node, max_depth)
 
-if path:
-    print(f"Path from {start_node} to {goal_node}: {path}")
-else:
-    print(f"No path found from {start_node} to {goal_node}")
+# if path:
+#     print(f"Path from {start_node} to {goal_node}: {path}")
+# else:
+#     print(f"No path found from {start_node} to {goal_node}")

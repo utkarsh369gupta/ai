@@ -20,7 +20,6 @@ def solve_nqueen(board, row, n) -> bool:
         board[row][col] = False
     return False
 
-
 def is_safe(board, row, col, n) -> bool:
     for i in range(col):
         if (board[row][i] == True):
@@ -42,7 +41,6 @@ def is_safe(board, row, col, n) -> bool:
 
     return True
 
-
 def display(board, n):
     for i in range(n):
         for j in range(n):
@@ -51,5 +49,5 @@ def display(board, n):
             else:
                 print(".", end=" ")
         print()
-        
-nqueen(8)
+if __name__=="__main__":    
+    nqueen(8)   
