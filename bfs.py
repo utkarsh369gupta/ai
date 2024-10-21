@@ -1,6 +1,4 @@
 from collections import defaultdict, deque
-
-
 class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
@@ -19,14 +17,16 @@ class Graph:
                     visited.append(node)
                     q.append(node)
 
+def main():
+    graph = Graph()
+    n = int(input("enter the number of edges: "))
+    for i in range(n):
+        u, v = input("enter the edges: ").split(" ")
+        graph.add_edge(u, v)
+    start = input("enter the starting node: ")
+    graph.bfs(start)
+    
+if __name__ == "__main__":
+    main()
 
-graph = Graph()
 
-graph.add_edge(1, 3)
-graph.add_edge(1, 4)
-graph.add_edge(3, 9)
-graph.add_edge(3, 10)
-graph.add_edge(4, 12)
-graph.add_edge(4, 15)
-
-graph.bfs(1)

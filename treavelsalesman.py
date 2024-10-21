@@ -33,7 +33,7 @@ class GreedyTSP:
 # Example usage
 num_cities = 4
 tsp_solver = GreedyTSP(num_cities)
-
+print(tsp_solver.graph)
 # Add edges (city1, city2, cost)
 tsp_solver.add_edge(0, 1, 10)
 tsp_solver.add_edge(0, 2, 15)
@@ -41,6 +41,7 @@ tsp_solver.add_edge(0, 3, 20)
 tsp_solver.add_edge(1, 2, 35)
 tsp_solver.add_edge(1, 3, 25)
 tsp_solver.add_edge(2, 3, 30)
+
 
 start_city = 0  # Starting city
 optimal_cost = tsp_solver.tsp(start_city)
