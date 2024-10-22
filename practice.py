@@ -1,48 +1,43 @@
+class GreedyTSP:
+    def __init__(self, num_cities):
+        self.graph = [[0] * num_cities for _ in range(num_cities)]
+        self.num_cities = num_cities
+
+    def add_edge(self, u, v, cost):
+        self.graph[u][v] = cost
+        self.graph[v][u] = cost
+
+    def tsp(self, start):
+        visited = [False] * self.num_cities
+        visited[start] = True
+        current_city = start
+        total_cost = 0
+
+        for _ in range(self.num_cities - 1):
+            nearest_city = None
+            nearest_cost = float('inf')
+
+            for city in range(self.num_cities):
+                if not visited[city] and self.graph[current_city][city] < nearest_cost:
+                    nearest_city = city
+                    nearest_cost = self.graph[current_city][city]
+
+            visited[nearest_city] = True
+            total_cost += nearest_cost
+            current_city = nearest_city
+
+        total_cost += self.graph[current_city][start]
+        return total_cost
 
 
-class cansm:
-    def __init__(self):
-        self.start = (3, 3, 1)
-        self.goal = (0, 0, 0)
-        self.visited = set()
-        self.parent = {}
+num_cities = int(input("Enter the number of cities: "))
+tsp_solver = GreedyTSP(num_cities)
 
-    def is_valid(self, state):
-        ml, cl, _ = state
-        mr, cr = 3-ml, 3-cl
+edges = int(input("Enter the number of edges: "))
+for _ in range(edges):
+    u, v, cost = map(int, input("Enter two cities and the cost between them: ").split())
+    tsp_solver.add_edge(u, v, cost)
 
-        if ml < 0 or cl < 0 or mr < 0 or cr < 0:
-            return False
-        if ml > 0 and ml < cl:
-            return False
-        if mr > 0 and mr < cr:
-            return False
-        return True
-
-    def get_neighbors(self, state):
-        ml, cl, b = state
-        move = []
-
-        if b == 1:
-            for mm, cm in [(1, 0), (2, 0), (0, 1), (0, 2), (1, 1)]:
-                nm = (ml-mm, cl-cm, 0)
-                if self.is_valid(nm):
-                    move.append(nm)
-        else:
-            for mm, cm in [(1, 0), (2, 0), (0, 1), (0, 2), (1, 1)]:
-                nm = (ml+mm, cl+cm, 1)
-                if self.is_valid(nm):
-                    move.append(nm)
-                    
-        return move
-    
-    def bfs(self):
-        q = deque([self.start])
-        self.visited.add(self.start)
-        self.parent[self.start] = None
-        
-        while q:
-            curr = q.popleft()
-            if curr == self.goal:
-                return cnt(curr)
-        
+start_city = int(input("Enter the starting city: "))
+optimal_cost = tsp_solver.tsp(start_city)
+print(f"The total cost for the Greedy TSP starting from city {start_city} is: {optimal_cost}")

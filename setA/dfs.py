@@ -16,7 +16,8 @@ class Graph:
                 self.dfs(neighbor, visited)
 
 
-# Example usagedef main():
+
+def main():
     graph = Graph()
     n = int(input("enter the number of edges: "))
     for i in range(n):

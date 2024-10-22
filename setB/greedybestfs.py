@@ -38,27 +38,24 @@ class Graph:
                     
         return []
 
-graph = Graph()
+def main():
+    graph = Graph()
+    n = input("enter the number of edges: ")
+    for i in range(n):
+        u,v = input("enter u and v: ")
+        graph.add_edge(u, v)
 
-# Add edges
-graph.add_edge(1, 2)
-graph.add_edge(1, 3)
-graph.add_edge(2, 4)
-graph.add_edge(3, 4)
-graph.add_edge(4, 5)
-graph.add_edge(5, 6)
+    graph.take_heuristic_input()
 
-# Take heuristic values from the user
-graph.take_heuristic_input()
+    start_node = input("enter the starting node: ")
+    goal_node = input("enter the goal node: ")
 
-# Define start and goal nodes
-start_node = 1
-goal_node = 6
+    path = graph.greedy_bfs(start_node, goal_node)
 
-# Run Greedy Best-First Search
-path = graph.greedy_bfs(start_node, goal_node)
+    if path:
+        print(f"Path from {start_node} to {goal_node}: {path}")
+    else:
+        print(f"No path found from {start_node} to {goal_node}")
 
-if path:
-    print(f"Path from {start_node} to {goal_node}: {path}")
-else:
-    print(f"No path found from {start_node} to {goal_node}")
+if __name__ == "__main__":
+    main()

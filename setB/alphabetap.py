@@ -1,16 +1,12 @@
-# Alpha-Beta Pruning Implementation for Tic-Tac-Toe
-
-# Define the players
 PLAYER_X = "X"
 PLAYER_O = "O"
 EMPTY = " "
 
-# Function to check if there's a winner or if the game is over
 def check_winner(board):
     winning_combinations = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
-        [0, 4, 8], [2, 4, 6]  # Diagonals
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+        [0, 4, 8], [2, 4, 6]  
     ]
     
     for combo in winning_combinations:
@@ -22,7 +18,6 @@ def check_winner(board):
     
     return None  # The game is still ongoing
 
-# Alpha-Beta Pruning function to evaluate the board and make decisions
 def alpha_beta(board, depth, alpha, beta, is_maximizing):
     winner = check_winner(board)
     
@@ -59,7 +54,6 @@ def alpha_beta(board, depth, alpha, beta, is_maximizing):
                     break
         return best_score
 
-# Function to find the best move for the current player using Alpha-Beta Pruning
 def find_best_move_alpha_beta(board, player):
     best_move = None
     best_score = -float('inf') if player == PLAYER_X else float('inf')
@@ -81,7 +75,6 @@ def find_best_move_alpha_beta(board, player):
     
     return best_move
 
-# Function to print the board
 def print_board(board):
     for i in range(0, 9, 3):
         print(board[i:i+3])
@@ -107,3 +100,6 @@ if __name__ == "__main__":
         print(f"\nBest move for Player X is at position: {best_move}")
     else:
         print("\nNo more moves available.")
+        
+        
+        

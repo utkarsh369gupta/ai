@@ -45,29 +45,29 @@ if __name__ == "__main__":
     main()  
         
 
-def main():
-    graph = Graph()
+# def main():
+#     graph = Graph()
     
-    # Adding edges to the graph
-    graph.add_edge('A', 'B')
-    graph.add_edge('A', 'C')
-    graph.add_edge('B', 'D')
-    graph.add_edge('B', 'E')
-    graph.add_edge('C', 'F')
-    graph.add_edge('C', 'G')
+#     # Adding edges to the graph
+#     graph.add_edge('A', 'B')
+#     graph.add_edge('A', 'C')
+#     graph.add_edge('B', 'D')
+#     graph.add_edge('B', 'E')
+#     graph.add_edge('C', 'F')
+#     graph.add_edge('C', 'G')
     
-    start_node = 'A'
-    goal_node = 'F'
-    depth_limit = 3
+#     start_node = 'A'
+#     goal_node = 'F'
+#     depth_limit = 3
     
-    path = graph.dls(start_node, goal_node, depth_limit)
+#     path = graph.dls(start_node, goal_node, depth_limit)
     
-    if path:
-        print(f"Goal node {goal_node} found within depth limit {depth_limit}.")
-        print("Path:", " -> ".join(path))
-    else:
-        print(f"Goal node {goal_node} not found within depth limit {depth_limit}.")
+#     if path:
+#         print(f"Goal node {goal_node} found within depth limit {depth_limit}.")
+#         print("Path:", " -> ".join(path))
+#     else:
+#         print(f"Goal node {goal_node} not found within depth limit {depth_limit}.")
         
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
